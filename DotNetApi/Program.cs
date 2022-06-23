@@ -1,8 +1,11 @@
 using DotNetApi.Context;
+using DotNetApi.Interfaces.Manager;
+using DotNetApi.Manager;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddTransient<IPostManager, PostManager>();
 // Add services to the container.
 
 builder.Services.AddControllers();

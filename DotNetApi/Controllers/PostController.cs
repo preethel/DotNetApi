@@ -12,7 +12,7 @@ namespace DotNetApi.Controllers
     public class PostController : ControllerBase
     {
         IPostManager _postManager;
-        public PostController(PostManager postManager)
+        public PostController(IPostManager postManager)
         {
             _postManager = postManager;
 
